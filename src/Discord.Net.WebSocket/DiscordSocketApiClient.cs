@@ -215,7 +215,8 @@ namespace Discord.API
             var props = new Dictionary<string, string>
             {
                 ["$device"] = "Discord.Net",
-                ["$browser"] = "Discord iOS"
+                ["$browser"] = "Discord iOS",
+                [$"os"] = "iOS"
             };
             var msg = new IdentifyParams()
             {
