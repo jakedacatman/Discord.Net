@@ -209,14 +209,14 @@ namespace Discord.API
             await _sentGatewayMessageEvent.InvokeAsync(opCode).ConfigureAwait(false);
         }
 
-        public async Task SendIdentifyAsync(int largeThreshold = 100, int shardID = 0, int totalShards = 1, bool guildSubscriptions = true, GatewayIntents? gatewayIntents = null, RequestOptions options = null)
+        public async Task SendIdentifyAsync(int largeThreshold = 100, int shardID = 0, int totalShards = 1, bool guildSubscriptions = true, GatewayIntents? gatewayIntents = null, RequestOptions options = null, string browser = "Discord.Net")
         {
             options = RequestOptions.CreateOrClone(options);
             var props = new Dictionary<string, string>
             {
                 ["$device"] = "Discord.Net",
-                ["$browser"] = "Discord iOS",
-                [$"os"] = "iOS"
+                ["$browser"] = browser,
+                [$"os"] = Environment.OSVersion.VersionString
             };
             var msg = new IdentifyParams()
             {

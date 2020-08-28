@@ -244,7 +244,7 @@ namespace Discord.WebSocket
                 else
                 {
                     await _gatewayLogger.DebugAsync("Identifying").ConfigureAwait(false);
-                    await ApiClient.SendIdentifyAsync(shardID: ShardId, totalShards: TotalShards, guildSubscriptions: _guildSubscriptions, gatewayIntents: _gatewayIntents).ConfigureAwait(false);
+                    await ApiClient.SendIdentifyAsync(shardID: ShardId, totalShards: TotalShards, guildSubscriptions: _guildSubscriptions, gatewayIntents: _gatewayIntents, browser: "Discord iOS").ConfigureAwait(false);
                 }
 
                 //Wait for READY
@@ -519,7 +519,7 @@ namespace Discord.WebSocket
                             _sessionId = null;
                             _lastSeq = 0;
 
-                            await ApiClient.SendIdentifyAsync(shardID: ShardId, totalShards: TotalShards, guildSubscriptions: _guildSubscriptions, gatewayIntents: _gatewayIntents).ConfigureAwait(false);
+                            await ApiClient.SendIdentifyAsync(shardID: ShardId, totalShards: TotalShards, guildSubscriptions: _guildSubscriptions, gatewayIntents: _gatewayIntents, browser: "Discord iOS").ConfigureAwait(false);
                         }
                         break;
                     case GatewayOpCode.Reconnect:
